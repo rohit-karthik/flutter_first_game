@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/images/player_image.png
     - assets/images/world_image.jpeg
+    - assets/images/item_image.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,3 +1,5 @@
+import 'package:first_flutter_game/other_item.dart';
+import 'package:flame/collisions.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flame/game.dart';
@@ -7,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'direction.dart';
 import 'player.dart';
 import 'world.dart';
+import 'other_item.dart';
 
 void main() {
   runApp(
@@ -16,14 +19,17 @@ void main() {
   );
 }
 
-class MyFirstGame extends FlameGame with KeyboardEvents {
+class MyFirstGame extends FlameGame with KeyboardEvents, HasCollisionDetection {
   final Player _player = Player();
   final World _world = World();
 
   @override
   Future<void> onLoad() async {
     await add(_world);
+    await add(OtherItem());
     await add(_player);
+
+    await add(ScreenHitbox());
 
     _player.position = _world.size / 2;
 
